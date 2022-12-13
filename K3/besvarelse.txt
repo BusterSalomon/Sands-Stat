@@ -12,6 +12,18 @@ Sandsynlighed for at man bedst kan lide SL1 givet at man er kvinde
 P(A|B) = 6/19
 
 c) Lader A og B til at være uafhængige hændelser
+Hvis de er uafhængige så gælder:
+P(A|B) = P(A) 
+
+P(A) = 17/37 ≠ 6/19 P(A|B)
+Derfor er de ikke uafhængige
+
+d) Nedenfor vises et Venn diagram med hvide og grå områder
+* Beskriv med ord de testpersoner der svarer til det hvide omride i Venn diagrammet
+Angiver sandsynligheden for at man bedst kan lide SL1 og man er mand
+
+* Hvilken eller hvilke af følgende hændelser svarer til det grå område?
+...
 
 
 
