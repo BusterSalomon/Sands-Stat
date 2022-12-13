@@ -1,0 +1,19 @@
+a)
+Angiv værdien af følgende sandsynligheder: 
+𝑃(𝑆), 𝑃(𝑆𝑐), 𝑃(𝑅|𝑆𝑐), 𝑃(𝑅𝑐|𝑆𝑐). 
+P(s)=0,10
+P(Sc)=0,9
+P(R|Sc)=0,07
+P(Rc|Sc)=0,93
+
+b)
+Hvad er sandsynligheden for, at en tilfældigt udvalgt stålbjælke vil udvise det særlige mønster, 
+når den bliver scannet?
+P(R|Sc) * P(Sc) + P(R|S) * P(S) = P(R)
+
+c)
+En tilfældigt udvalgt stålbjælke bliver scannet, og det viser sig, at den udviser det særlige 
+mønster. Hvad er sandsynligheden for, at den er svag?
+
+P(S|R) = P(R|S) * P(s)/P(R) = 0,87 * 0,1 / ...
+
