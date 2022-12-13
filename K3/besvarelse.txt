@@ -1,0 +1,18 @@
+a) Beregn sandsynligheden P(A),P(A^c), P(B), P(B^c)
+P(A) =  17/37
+P(A^c) = 20/37
+P(B) = 19/37
+P(B^c) = 18/37
+
+b) Beregn sandsynlighederne P(A ∩ B) og P(A | B)
+P(A ∩ B) er intersection, altså fællesmængde
+P(A ∩ B) = 6/37
+
+Sandsynlighed for at man bedst kan lide SL1 givet at man er kvinde
+P(A|B) = 6/19
+
+c) Lader A og B til at være uafhængige hændelser
+
+
+
+
