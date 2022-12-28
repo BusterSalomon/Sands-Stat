@@ -1,6 +1,12 @@
 ## Opgave 6.21 s. 210 om postens leverencetid
+# The following is the time taken (in hours) for the
+# delivery of 8 parcels within a city: 28, 32, 20, 26,
+# 42, 40, 28, and 30. Use these figures to judge the
+# reasonableness of delivery services when they say it
+# takes 30 hours on average to deliver a parcel within
+# the city
 
-# Posten lover, at pakker leveres på 30 timer i gennesmnit:
+# Posten lover, at pakker leveres pï¿½ 30 timer i gennesmnit:
 mu = 30
 
 # Her er leverencetiderne for 8 pakker:
@@ -9,7 +15,7 @@ n = length(x)
 x_streg = mean(x)    # x_streg = 30.75
 s = sd(x)
 
-# Vi antager den centrale grænseværdisætning:
+# Vi antager den centrale grï¿½nsevï¿½rdisï¿½tning:
 t0 = (x_streg-mu)/(s/sqrt(n))
 
 # t0 er t-fordelt med n-1 frihedsgrader
@@ -17,7 +23,7 @@ t0 = (x_streg-mu)/(s/sqrt(n))
 p_0 = 1 - pt(t0, n-1)   # p_0 = 0.389
 
 # Konklusion. 
-# Hvis posten har ret og mu = 30, så er sandsynligheden for at få en
-# stikprøve på 8 observationer med x_streg > 30.75 lig med 0.389. 
-# Med andre ord vil knap 39 % af stikprøver ligne denne eller være 
-# mere ekstrem. Vi kan ikke afvise postens påstand med denne stikprøve
+# Hvis posten har ret og mu = 30, sï¿½ er sandsynligheden for at fï¿½ en
+# stikprï¿½ve pï¿½ 8 observationer med x_streg > 30.75 lig med 0.389. 
+# Med andre ord vil knap 39 % af stikprï¿½ver ligne denne eller vï¿½re 
+# mere ekstrem. Vi kan ikke afvise postens pï¿½stand med denne stikprï¿½ve

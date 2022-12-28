@@ -1,18 +1,22 @@
-## Opgave 6.25 s. 210 om varians af to normalfordelte stikprøver 
+## Opgave 6.25 s. 210 om varians af to normalfordelte stikprï¿½ver 
+
+# If independent random samples of size n1 = n2 = 8
+# come from normal populations having the same variance,
+# what is the probability that either sample variance will be at least 7 times as large as the other?
 
 n1 = n2 =  8
 
-# Vi ser på situationen at den ene stikprøves varians er 7 gange den 
+# Vi ser pï¿½ situationen at den ene stikprï¿½ves varians er 7 gange den 
 # andens selv om de kommer fra samme normalfordeling 
 
 F_0 = 7 
 
-# F_0 er F-fordelt med 7 frihedsgrader i både tæller og nævner, så 
+# F_0 er F-fordelt med 7 frihedsgrader i bï¿½de tï¿½ller og nï¿½vner, sï¿½ 
 # P_0 = P(F0 > 7)= 1 - P(F0 < 7) = 1 - pf(7, 7, 7)
 P_0 = 1 - pf(F_0, n1-1, n2-1)  # P_0 = 0.010
 
-# Det sker tilfældigt i 1 % af tilfældene, at to stikprøver på 8 
-# observationer får et forhold mellem stikprøvevarianser på 7 eller 
+# Det sker tilfï¿½ldigt i 1 % af tilfï¿½ldene, at to stikprï¿½ver pï¿½ 8 
+# observationer fï¿½r et forhold mellem stikprï¿½vevarianser pï¿½ 7 eller 
 # derover
 
 # N.B. Facitlisten siger p_0 = 0.02. 
