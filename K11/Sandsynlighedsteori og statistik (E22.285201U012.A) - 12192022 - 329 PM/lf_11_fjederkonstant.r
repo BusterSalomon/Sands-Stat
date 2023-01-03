@@ -2,25 +2,25 @@
 
 ## Opgave kap. 11 om bestemmelse af en fjeders fjederkonstant
 
-D = read.table("Kap11/data_hookes_lov.csv", header=TRUE, sep=";")
+D = read.table("K11/Sandsynlighedsteori og statistik (E22.285201U012.A) - 12192022 - 329 PM/data_hookes_lov.csv", header=TRUE, sep=";")
 aar = D$Aar
 m = D$Masse/1000   # Loddernes masse omregnet til kg
-x = D$Laengde      # Fjederens forlængelse i mm
-F = m*9.81         # Loddernes tyngdekraft på fjederen (kg*m/s2 = N)
+x = D$Laengde      # Fjederens forlï¿½ngelse i mm
+F = m*9.81         # Loddernes tyngdekraft pï¿½ fjederen (kg*m/s2 = N)
 
 
-## a: Lineær regression
-# Lineær regression, hvor F udtrykkes som funktion af x
+## a: Lineï¿½r regression
+# Lineï¿½r regression, hvor F udtrykkes som funktion af x
 linmod = lm(F~x)
 summary(linmod)
 
-# Fjederkonstanten k aflæses som hældningskoefficienten, så 
+# Fjederkonstanten k aflï¿½ses som hï¿½ldningskoefficienten, sï¿½ 
 # k = b1 = 0.32732
 
-# Man kan evt. ønske at tvinge b0 til at være 0, da vi forventer 
-# at fjederen ikke forlænges, hvis den ikke påvirkes. Der er jo 
-# heller ikke noget konstantled på Hooke's lov. 
-# Det kan vi gøre sådan:
+# Man kan evt. ï¿½nske at tvinge b0 til at vï¿½re 0, da vi forventer 
+# at fjederen ikke forlï¿½nges, hvis den ikke pï¿½virkes. Der er jo 
+# heller ikke noget konstantled pï¿½ Hooke's lov. 
+# Det kan vi gï¿½re sï¿½dan:
 linmod0 = lm(F~x - 1)
 summary(linmod0)
 # Det giver k = b1 = 0.29917
@@ -29,21 +29,21 @@ summary(linmod0)
 
 ## b: Forklaring af modellens statistikker
 # Jeg forklarer statistikkerne for modellen med intercept. 
-# P-værdien for bestemmelsen af fjederkonstanten er 1.89e-05, så vi er
-# næsten sikker på, at værdien ikke er nul. Til gengæld er p-værdien på 
-# 0.256 for koefficienten b0 = -0.56444, så det er meget sandsynligt, 
-# at den i virkeligheden er 0. Det er jo også det, vi forventer af 
+# P-vï¿½rdien for bestemmelsen af fjederkonstanten er 1.89e-05, sï¿½ vi er
+# nï¿½sten sikker pï¿½, at vï¿½rdien ikke er nul. Til gengï¿½ld er p-vï¿½rdien pï¿½ 
+# 0.256 for koefficienten b0 = -0.56444, sï¿½ det er meget sandsynligt, 
+# at den i virkeligheden er 0. Det er jo ogsï¿½ det, vi forventer af 
 # Hookes lov:
 #    b0 er 0 og b1 er en positiv konstant (fjederkonstanten). 
-# R-squared er 0.9609 og Adjusted R-Squared er 0.9544, så modellen 
-# forklarer næsten al variationen. Det er ikke så overraskende for en 
+# R-squared er 0.9609 og Adjusted R-Squared er 0.9544, sï¿½ modellen 
+# forklarer nï¿½sten al variationen. Det er ikke sï¿½ overraskende for en 
 # fysisk lov. 
 
 
 ## c. Figur(er)
 plot(x, F, type="p",
-     main = "Kraften på en fjeder og dens udstrækning",
-     xlab = "Udstrækning x (mm)",
+     main = "Kraften pï¿½ en fjeder og dens udstrï¿½kning",
+     xlab = "Udstrï¿½kning x (mm)",
      ylab = "Kraft F (N)",
      col = "blue")
 # Tegner regressionslinjen
@@ -51,18 +51,18 @@ abline(reg=linmod, col="red")
 
 
 ## d. Bedre bestemmelse af fjederkonstanten
-# Det er klart, at Hookes lov kun gælder indenfor et interval, der er
-# begrænset af, hvor langt fjederen kan trækkes ud. Når fjederen 
-# nærmer sig sin maksimale længde vil en ekstra kraftpåvirkning ikke 
-# resultere i en yderligere forlængelse med proportionalitetsfaktoren 
+# Det er klart, at Hookes lov kun gï¿½lder indenfor et interval, der er
+# begrï¿½nset af, hvor langt fjederen kan trï¿½kkes ud. Nï¿½r fjederen 
+# nï¿½rmer sig sin maksimale lï¿½ngde vil en ekstra kraftpï¿½virkning ikke 
+# resultere i en yderligere forlï¿½ngelse med proportionalitetsfaktoren 
 # k. Derfor er det i orden at udelukke punkter, der lader til at 
-# ligge udenfor intervallet, hvor Hookes lov gælder. 
+# ligge udenfor intervallet, hvor Hookes lov gï¿½lder. 
 
-# Ud fra figuren i c) tyder det på, at de  sidste to målinger er 
-# udenfor intervallet, hvor Hookes lov gælder.  
+# Ud fra figuren i c) tyder det pï¿½, at de  sidste to mï¿½linger er 
+# udenfor intervallet, hvor Hookes lov gï¿½lder.  
 # Derfor vil jeg udelukke de sidste to punkter og bestemme 
-# fjederkonstanten ud fra de første 6. Jeg vil desuden tvinge 
-# modellen til at gå igennem (0,0).
+# fjederkonstanten ud fra de fï¿½rste 6. Jeg vil desuden tvinge 
+# modellen til at gï¿½ igennem (0,0).
 
 x2 = x[1:6]
 F2 = F[1:6]
@@ -71,16 +71,16 @@ summary(linmod2)
 
 # Nu bestemmes fjederkonstanten til k = 0.25396 N/mm. 
 
-# Ikke overraskende er modellen nu endnu bedre. P-værdien for  
-# bestemmelsen af fjederkonstanten er 3.55e-10, så vi er næsten 
-# sikker på, at værdien ikke er nul. 
-# Både R-squared og Adjusted R-Squared er 0.9997, så modellen 
-# forklarer næsten al variationen. 
+# Ikke overraskende er modellen nu endnu bedre. P-vï¿½rdien for  
+# bestemmelsen af fjederkonstanten er 3.55e-10, sï¿½ vi er nï¿½sten 
+# sikker pï¿½, at vï¿½rdien ikke er nul. 
+# Bï¿½de R-squared og Adjusted R-Squared er 0.9997, sï¿½ modellen 
+# forklarer nï¿½sten al variationen. 
 
 # Figur af den nye model:
 plot(x2, F2, type="p",
-     main = "Kraften på en fjeder og dens udstrækning",
-     xlab = "Udstrækning x (mm)",
+     main = "Kraften pï¿½ en fjeder og dens udstrï¿½kning",
+     xlab = "Udstrï¿½kning x (mm)",
      ylab = "Kraft F (N)",
      col = "blue")
 abline(reg=linmod2, col="red")

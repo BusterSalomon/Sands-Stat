@@ -2,7 +2,8 @@
 
 ## Opgave om snydesoftware i dieselbiler
 
-D = read.table("Kap07/snydesoftware.csv", header=TRUE)
+
+D = read.table("K7/Sandsynlighedsteori og statistik (E22.285201U012.A) - 12192022 - 326 PM/snydesoftware.csv", header=TRUE)
 
 x = D$NOx
 
@@ -14,20 +15,20 @@ n = length(x)
 ## a. Hypoteser
 # H0: mu = mu0
 # Ha: mu > mu0
-# Da man er bekymret for, om bilerne overskrider grænseværdien på 0.08,
-# vælges en ensidet hypotesetest, hvor H0 forkastes, hvis teststørrelsen
-# er tilstrækkeligt langt over en grænseværdi
+# Da man er bekymret for, om bilerne overskrider grï¿½nsevï¿½rdien pï¿½ 0.08,
+# vï¿½lges en ensidet hypotesetest, hvor H0 forkastes, hvis teststï¿½rrelsen
+# er tilstrï¿½kkeligt langt over en grï¿½nsevï¿½rdi
 
 
-## b. teststørrelsens formel og fordeling
-# Vi undersøger populationsmiddelværdien mu og kender ikke populations-
-# standardafvigelsen sigma. Derfor bruger vi teststørrelsen:
+## b. teststï¿½rrelsens formel og fordeling
+# Vi undersï¿½ger populationsmiddelvï¿½rdien mu og kender ikke populations-
+# standardafvigelsen sigma. Derfor bruger vi teststï¿½rrelsen:
 # t0 = (x_streg - mu0)/(s/sqrt(n))
-# t0 følger en t-fordeling med n-1 frihedsgrader
+# t0 fï¿½lger en t-fordeling med n-1 frihedsgrader
 
 
-## c. Beregn kritisk region, teststørrelsens værdi og konkluder
-# Da det er en ensidet test skal vi bestemme t_alfa, så arealet under 
+## c. Beregn kritisk region, teststï¿½rrelsens vï¿½rdi og konkluder
+# Da det er en ensidet test skal vi bestemme t_alfa, sï¿½ arealet under 
 # kurven over t_alfa er alfa, med alfa = 0.05
 t_alfa = qt(1-alfa, n-1)           # t_alfa = 1.833
 
@@ -35,13 +36,13 @@ x_streg = mean(x)
 s = sd(x)
 t0 = (x_streg - mu0)/(s/sqrt(n))   # t0 = 2.5822
 
-# Da t0 = 2.582 og t_alfa = 1.833, er t0 > t_alfa, så vi forkaster
-# nulhypotesen. Bilerne overskrider grænseværdien for udledning af NOx
+# Da t0 = 2.582 og t_alfa = 1.833, er t0 > t_alfa, sï¿½ vi forkaster
+# nulhypotesen. Bilerne overskrider grï¿½nsevï¿½rdien for udledning af NOx
 
 
-## d. P-værdi
+## d. P-vï¿½rdi
 p_value = 1 - pt(t0, n-1)
-# p-værdien er 0.0148, og den angiver det mindste signifikansniveau,
+# p-vï¿½rdien er 0.0148, og den angiver det mindste signifikansniveau,
 # der tillader os at forkaste nulhypotesen. Da 0.0148 < 0.05 forkaster
 # vi H0
   
@@ -52,33 +53,33 @@ E = t_alfahalve * s * sqrt(1/n)
 KI_lav = x_streg - E
 KI_hoj = x_streg + E
 # 95 % konfidensinterval: [0.0805; 0.0877]
-# Bemærk at mu0 = 0.08 ikke er i konfidensintervallet
+# Bemï¿½rk at mu0 = 0.08 ikke er i konfidensintervallet
 
 
-## f. Prædiktionsinterval:
+## f. Prï¿½diktionsinterval:
 P = t_alfahalve * s * sqrt(1 + 1/n)
 PI_lav = x_streg - P
 PI_hoj = x_streg + P
-# 95 % prædiktionsinterval: [0.0722; 0.0960]
+# 95 % prï¿½diktionsinterval: [0.0722; 0.0960]
 
 
 ## g. Antagelser
-# Vi har antaget CGS. Da n = 10 skal vi teste om n er tilstrækkelig
+# Vi har antaget CGS. Da n = 10 skal vi teste om n er tilstrï¿½kkelig
 # stor til at CGS holder. 
 
 stem(x)
 
-# Stem-and-leaf plottet viser at data kommer fra en pæn fordeling med 
-# et enkelt toppunkt, lidt højreskæv, men nogenlunde symmetrisk og med 
-# hurtigt uddøende haler
+# Stem-and-leaf plottet viser at data kommer fra en pï¿½n fordeling med 
+# et enkelt toppunkt, lidt hï¿½jreskï¿½v, men nogenlunde symmetrisk og med 
+# hurtigt uddï¿½ende haler
 
 qqnorm(x)
 
-# Normalfordelingsplottet viser ikke en særligt lineær sammenhæng, så 
-# vi er ikke overbevist om, at stikprøvens fordeling ligner 
+# Normalfordelingsplottet viser ikke en sï¿½rligt lineï¿½r sammenhï¿½ng, sï¿½ 
+# vi er ikke overbevist om, at stikprï¿½vens fordeling ligner 
 # normalfordelingen. 
-# Det er lidt bekymrende, at der kun er 10 observationer i stikprøven. 
-# Med over 30 observationer ville vi være næsten sikre på, at den 
-# centrale grænseværdisætning holder. Det kan derfor anbefales, at 
-# bilproducenten foretager NOx målingen på flere biler for at være 
-# mere sikker på, at modelantagelserne holder. 
+# Det er lidt bekymrende, at der kun er 10 observationer i stikprï¿½ven. 
+# Med over 30 observationer ville vi vï¿½re nï¿½sten sikre pï¿½, at den 
+# centrale grï¿½nsevï¿½rdisï¿½tning holder. Det kan derfor anbefales, at 
+# bilproducenten foretager NOx mï¿½lingen pï¿½ flere biler for at vï¿½re 
+# mere sikker pï¿½, at modelantagelserne holder. 

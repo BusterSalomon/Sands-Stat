@@ -1,24 +1,34 @@
 ## M&R opgave 9.15, s. 299
-# Processorhastigheden af to forskellige processorer undersøges
+# Two different computer processors are compared by
+# measuring the processing speed for different operations performed by computers using the two processors.
+# If 12 measurements with the first processor had a
+# standard deviation of 0.1 GHz and 16 measurements
+# with the second processor had a standard deviation
+# of 0.15 GHz, can it be concluded that the processing
+# speed of the second processor is less uniform? Use a
+# 0.05 level of significance. What assumptions must be
+# made as to how the two samples are obtained?
 
-n_1 = 12         # Antal målinger med første processor
-s_1 = 0.1        # Stikprøvestandardafvigelsen af første processor
-s2_1 = s_1^2     # Stikprøvevariansen af første processor
+# Processorhastigheden af to forskellige processorer undersï¿½ges
 
-n_2 = 16         # Antal målinger med anden processor
-s_2 = 0.15       # Stikprøvestandardafvigelsen af anden processor
-s2_2 = s_2^2     # Stikprøvevariansen af anden processor
+n_1 = 12         # Antal mï¿½linger med fï¿½rste processor
+s_1 = 0.1        # Stikprï¿½vestandardafvigelsen af fï¿½rste processor
+s2_1 = s_1^2     # Stikprï¿½vevariansen af fï¿½rste processor
 
-# NB. Teststørrelsens værdi, F_0 = s2_1/s2_2 afhænger af hvilken
-# stikprøve, der kaldes nr. 1 og nr. 2. 
-# Bogen foreslår, at man vælger den stikprøve med størst varians til 
-# at være i tælleren, så teststørrelsen er større end eller lig med 1.
-# Så skal man vurdere teststørrelsen mod den kritiske grænse for den
-# højre hale (F_alfa ved ensidig test og F_alfahalve ved tosidig). 
-# Her bevarer jeg nummereringen af stikprøver, så den mindste kommer
-# i tælleren, og så F_0 bliver evalueret mod grænsen for den venstre
-# hale. Jeg beregner også den alternative, F_0_alt og evaluerer mod
-# højre hales grænse, så man kan se, at resultatet er det samme.
+n_2 = 16         # Antal mï¿½linger med anden processor
+s_2 = 0.15       # Stikprï¿½vestandardafvigelsen af anden processor
+s2_2 = s_2^2     # Stikprï¿½vevariansen af anden processor
+
+# NB. Teststï¿½rrelsens vï¿½rdi, F_0 = s2_1/s2_2 afhï¿½nger af hvilken
+# stikprï¿½ve, der kaldes nr. 1 og nr. 2. 
+# Bogen foreslï¿½r, at man vï¿½lger den stikprï¿½ve med stï¿½rst varians til 
+# at vï¿½re i tï¿½lleren, sï¿½ teststï¿½rrelsen er stï¿½rre end eller lig med 1.
+# Sï¿½ skal man vurdere teststï¿½rrelsen mod den kritiske grï¿½nse for den
+# hï¿½jre hale (F_alfa ved ensidig test og F_alfahalve ved tosidig). 
+# Her bevarer jeg nummereringen af stikprï¿½ver, sï¿½ den mindste kommer
+# i tï¿½lleren, og sï¿½ F_0 bliver evalueret mod grï¿½nsen for den venstre
+# hale. Jeg beregner ogsï¿½ den alternative, F_0_alt og evaluerer mod
+# hï¿½jre hales grï¿½nse, sï¿½ man kan se, at resultatet er det samme.
 
 # 1. Hypoteser:
 # H0: sigma2_1 = sigma2_2
@@ -28,13 +38,13 @@ s2_2 = s_2^2     # Stikprøvevariansen af anden processor
 alfa = 0.05
 
 # 3. Kriterier
-# Teststørrelsen F_0 = s2_1/s2_2 
+# Teststï¿½rrelsen F_0 = s2_1/s2_2 
 # Alternativt: F_0_alt = s2_2/s2_1
-# Teststørrelsen er F-fordelt med n_1-1 frihedsgrader i tælleren og 
-# n_2-1 frihedsgrader i nævneren
+# Teststï¿½rrelsen er F-fordelt med n_1-1 frihedsgrader i tï¿½lleren og 
+# n_2-1 frihedsgrader i nï¿½vneren
 # Vi forkaster H0, hvis F_0 er mindre end F_venstre, hvor 
 F_venstre = qf(alfa, n_1-1, n_2-1)
-# Alternativt, hvis F_0_alt er større end F_hoejre, hvor
+# Alternativt, hvis F_0_alt er stï¿½rre end F_hoejre, hvor
 F_hoejre  = qf(1-alfa, n_2-1, n_1-1)
 
 
@@ -44,9 +54,9 @@ F_0_alt = s2_2/s2_1
 
 # 5. Konklusion
 # Da F_0 = 0.4444 ikke er mindre end F_venstre = 0.3678, kan vi ikke
-# forkaste H0. Varianserne af de to processorer kan være ens.
+# forkaste H0. Varianserne af de to processorer kan vï¿½re ens.
 
-# Hvis vi havde byttet om på stikprøvernes numre, ville vi nå samme
-# konklusion, for F_0_alt = 2.25 overstiger ikke den højre hales 
-# grænse på F_hoejre = 2.2719
+# Hvis vi havde byttet om pï¿½ stikprï¿½vernes numre, ville vi nï¿½ samme
+# konklusion, for F_0_alt = 2.25 overstiger ikke den hï¿½jre hales 
+# grï¿½nse pï¿½ F_hoejre = 2.2719
 
